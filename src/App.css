@@ -1,0 +1,19 @@
+/* Custom Scrollbar */
+.scroll-container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #4f46e5, #3b82f6); /* Gradient for illumination */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px #3b82f6, 0 0 30px #3b82f6; /* Stronger glow effect */
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #6797e5, #2563eb); /* Brighter gradient on hover */
+    box-shadow: 0 0 25px #2563eb, 0 0 40px #2563eb; /* Even stronger glow on hover */
+}
