@@ -1,16 +1,50 @@
-<<<<<<< HEAD
-# React + Vite
+# 🧑‍💻 Personal Portfolio – Ranjan Ravi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my **personal portfolio website**, built with **React** and **Vite**, designed to showcase my projects, skills, and ways to get in touch. It’s fast, responsive, and hosted live on **Vercel**.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)  
+_(Replace with your actual deployed URL)_
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# updated-portfolio
->>>>>>> b406248b5fecb800624385e9a1590f931cb30c39
+## 🛠️ Tech Stack
+
+- **Framework**: React
+- **Build Tool**: Vite
+- **Styling**: CSS / Tailwind CSS _(choose one based on your project)_
+- **Deployment**: Vercel
+- **Version Control**: Git + GitHub
+
+---
+
+## 📸 Features
+
+- ⚡ Lightning-fast performance with Vite
+- 📱 Fully responsive design (mobile & desktop)
+- 🧩 Modular React components
+- 📁 Project showcase with descriptions
+- 📇 About Me & Contact sections
+- 🌐 Live deployed site via Vercel
+
+---
+
+## 🚀 Getting Started Locally
+
+To clone and run this portfolio locally:
+```bash
+git clone https://github.com/Ranjan-Ravii/updated-portfolio.git
+cd portfolio2.0
+npm install
+npm run dev
+
+```
+📬 Contact Me
+I'd love to connect!
+
+📧 Email: inboxraviiranjan@gmail.com
+
+💼 LinkedIn: https://www.linkedin.com/in/ranjan-ravii/
+
+🐙 GitHub: https://github.com/Ranjan-Ravii
