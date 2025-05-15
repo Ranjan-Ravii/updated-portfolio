@@ -98,7 +98,7 @@ const Portfolio = () => {
     }, []);
 
     return (
-        <section className="min-h-screen bg-gradient-to-br from-gray-800 to-[#0A0A23] text-gray-100 py-12">
+        <section className="bg-gradient-to-br from-gray-800 to-[#0A0A23] text-gray-100 py-12">
             <div className="max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
 

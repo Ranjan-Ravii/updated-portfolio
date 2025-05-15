@@ -40,7 +40,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen bg-gradient-to-br from-gray-500 to-[#0A0A23] text-gray-100 py-12 px-4 flex items-center"
+      className=" bg-gradient-to-br from-gray-500 to-[#0A0A23] text-gray-100 py-12 px-4 flex items-center"
     >
       <div className="max-w-6xl mx-auto w-full ">
         {/* Main Content Container - Stack on mobile, side-by-side on desktop */}

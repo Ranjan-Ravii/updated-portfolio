@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-[100svh] bg-gradient-to-br from-gray-500/25 to-[#0A0A23] text-gray-100 flex items-center px-6 md:px-12 py-8"
+      className="h-screen bg-gradient-to-br from-gray-500/25 to-[#0A0A23] text-gray-100 flex items-center px-6 md:px-12 py-8"
     >
       <div className="max-w-6xl w-full mx-auto">
         {/* Main container - column on mobile, row on desktop */}
