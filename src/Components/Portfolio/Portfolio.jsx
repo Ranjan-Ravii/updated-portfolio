@@ -126,13 +126,12 @@ const Portfolio = () => {
                         ref={scrollContainerRef}
                         className="scroll-container col-span-2 h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
                     >
-                        <div className="h-[100px]"></div>
 
                         {projects.map((project, index) => (
                             <div
                                 key={project.id}
                                 ref={(el) => (projectRefs.current[index] = el)}
-                                className={`mb-[100px] p-6 rounded-xl h-[400px] flex flex-col transition-all duration-300 ${index === activeIndex
+                                className={`mb-[100px] p-6 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
                                     ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor} !important`
                                     : "bg-gray-800/80  "
                                     }`}
