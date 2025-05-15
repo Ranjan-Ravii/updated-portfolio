@@ -39,7 +39,7 @@ const Home = () => {
             </p>
             <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
               <button
-              onClick={ () => {window.open("https://www.youtube.com/" , "_blank")}}
+              onClick={ () => {window.open("https://r-ranjan.vercel.app/" , "_blank")}}
                 className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md transition-all duration-300"
               >
                 View Portfolio

@@ -1,4 +1,4 @@
-  
+
 import React from "react";
 
 const About = () => {
@@ -47,8 +47,10 @@ const About = () => {
         <div className="flex flex-col md:flex-row md:gap-8 md:items-center">
           {/* About Me Section - Full width on mobile, left side on desktop */}
           <div className="flex flex-col items-center mb-12 md:mb-0 md:w-2/5">
-            {/* Profile Image */}
-            <div className="w-48 h-48 bg-gray-700 rounded-lg shadow-lg mb-6" />
+            <img 
+            className="w-7/12 bg-cover rounded-lg shadow-lg mb-6" 
+            src="/ravi.jpg"
+            />
             
             {/* About Text */}
             <div className="text-center md:text-left">

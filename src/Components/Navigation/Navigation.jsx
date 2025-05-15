@@ -35,7 +35,7 @@ function Navigation() {
 
       if (currentSection) {
         setActiveSection(currentSection.id);
-        window.history.pushState(null, "", `/${currentSection.id}`);
+        window.history.pushState(null, "", `#${currentSection.id}`);
       } else {
         setActiveSection(''); // Reset if no section matches
       }
