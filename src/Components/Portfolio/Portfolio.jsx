@@ -124,7 +124,7 @@ const Portfolio = () => {
                     {/* Right scrollable content */}
                     <div
                         ref={scrollContainerRef}
-                        className="scroll-container col-span-2 h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
+                        className="col-span-2 h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
                     >
 
                         {projects.map((project, index) => (

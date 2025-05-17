@@ -49,7 +49,7 @@ const About = () => {
           <div className="flex flex-col items-center mb-12 md:mb-0 md:w-2/5">
             <img 
             className="w-7/12 bg-cover rounded-lg shadow-lg mb-6" 
-            src="/ravi.jpg"
+            src="/ravi-official.jpg"
             />
             
             {/* About Text */}
