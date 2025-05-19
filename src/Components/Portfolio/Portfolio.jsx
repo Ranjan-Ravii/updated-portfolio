@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import _ from 'lodash'; // Make sure lodash is installed for throttle
 
 const Portfolio = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -6,60 +7,59 @@ const Portfolio = () => {
     const scrollContainerRef = useRef(null);
 
     const projects = [
-    {
-        id: 1,
-        title: "Video Streaming Platform",
-        url: "https://example.com/", // Replace with actual URL
-        img_url : "/live-streaming.png",
-        description:
-            "A YouTube-like full-stack video streaming platform built using the MERN stack. Includes user authentication, video upload/update, likes, comments, and a modern UI.",
-        tags: ["MongoDB", "Express", "React", "Node.js", "Authentication"],
-        bgColor: "bg-red-600",
-        textColor: "text-red-500",
-        borderColor: "border-red-600",
-        tagColor: "bg-red-600/80",
-    },
-    {
-        id: 2,
-        title: "Local DNS Server",
-        url: "https://github.com/Ranjan-Ravii/dns-server/",
-        img_url : "dns-server.jpg",
-        description:
-            "Custom local DNS server setup using BIND to resolve domain names within a private network. Useful for educational, testing, and internal network configurations.",
-        tags: ["Linux", "BIND", "DNS", "Networking"],
-        bgColor: "bg-indigo-600",
-        textColor: "text-indigo-500",
-        borderColor: "border-indigo-600",
-        tagColor: "bg-indigo-600/80",
-    },
-    {
-        id: 3,
-        title: "Currency Converter",
-        url : "https://ranjan-ravii.github.io/currency-converter/",
-        img_url : "/currency_converter.jpg",
-        description:
-            "Real-time currency conversion app using public exchange rate APIs. Includes conversion history, favorite currencies, and a responsive UI.",
-        tags: ["React", "API", "Tailwind"],
-        bgColor: "bg-green-600",
-        textColor: "text-green-500",
-        borderColor: "border-green-600",
-        tagColor: "bg-green-600/80",
-    },
-    {
-        id: 4,
-        title: "Password Generator",
-        url : "https://ranjan-ravii.github.io/password-generator/",
-        img_url : "/keyboard-with-latter.jpg",
-        description:
-            "Customizable password generator that allows users to select length and character types. Features strength indicator and one-click copy.",
-        tags: ["React", "Clipboard", "Tailwind"],
-        bgColor: "bg-yellow-600",
-        textColor: "text-yellow-500",
-        borderColor: "border-yellow-600",
-        tagColor: "bg-yellow-600/80",
-    },
-];
-
+        {
+            id: 1,
+            title: "Video Streaming Platform",
+            url: "https://example.com/",
+            img_url: "/live-streaming.png",
+            description:
+                "A YouTube-like full-stack video streaming platform built using the MERN stack. Includes user authentication, video upload/update, likes, comments, and a modern UI.",
+            tags: ["MongoDB", "Express", "React", "Node.js", "Authentication"],
+            bgColor: "bg-red-600",
+            textColor: "text-red-500",
+            borderColor: "border-red-600",
+            tagColor: "bg-red-600/80",
+        },
+        {
+            id: 2,
+            title: "Local DNS Server",
+            url: "https://github.com/Ranjan-Ravii/dns-server/",
+            img_url: "dns-server.jpg",
+            description:
+                "Custom local DNS server setup using BIND to resolve domain names within a private network. Useful for educational, testing, and internal network configurations.",
+            tags: ["Linux", "BIND", "DNS", "Networking"],
+            bgColor: "bg-indigo-600",
+            textColor: "text-indigo-500",
+            borderColor: "border-indigo-600",
+            tagColor: "bg-indigo-600/80",
+        },
+        {
+            id: 3,
+            title: "Currency Converter",
+            url: "https://ranjan-ravii.github.io/currency-converter/",
+            img_url: "/currency_converter.jpg",
+            description:
+                "Real-time currency conversion app using public exchange rate APIs. Includes conversion history, favorite currencies, and a responsive UI.",
+            tags: ["React", "API", "Tailwind"],
+            bgColor: "bg-green-600",
+            textColor: "text-green-500",
+            borderColor: "border-green-600",
+            tagColor: "bg-green-600/80",
+        },
+        {
+            id: 4,
+            title: "Password Generator",
+            url: "https://ranjan-ravii.github.io/password-generator/",
+            img_url: "/keyboard-with-latter.jpg",
+            description:
+                "Customizable password generator that allows users to select length and character types. Features strength indicator and one-click copy.",
+            tags: ["React", "Clipboard", "Tailwind"],
+            bgColor: "bg-yellow-600",
+            textColor: "text-yellow-500",
+            borderColor: "border-yellow-600",
+            tagColor: "bg-yellow-600/80",
+        },
+    ];
 
     const handleScroll = () => {
         if (!scrollContainerRef.current) return;
@@ -85,15 +85,15 @@ const Portfolio = () => {
             }
         });
 
-        // console.log("Active Index:", closestIndex); // Debugging
         setActiveIndex(closestIndex);
     };
 
     useEffect(() => {
+        const throttleScroll = _.throttle(handleScroll, 100);  // Throttle scroll to run every 100ms
         const scrollContainer = scrollContainerRef.current;
         if (scrollContainer) {
-            scrollContainer.addEventListener("scroll", handleScroll);
-            return () => scrollContainer.removeEventListener("scroll", handleScroll);
+            scrollContainer.addEventListener("scroll", throttleScroll);
+            return () => scrollContainer.removeEventListener("scroll", throttleScroll);
         }
     }, []);
 
@@ -109,7 +109,7 @@ const Portfolio = () => {
                             <div
                                 key={project.id}
                                 className={`flex items-center gap-4 p-4 rounded-lg transition-all duration-300 ${index === activeIndex
-                                    ? `${project.bgColor} text-white shadow-lg !important`
+                                    ? `${project.bgColor} text-white shadow-lg`
                                     : "bg-gray-700 hover:bg-gray-600"
                                     }`}
                             >
@@ -124,7 +124,7 @@ const Portfolio = () => {
                     {/* Right scrollable content */}
                     <div
                         ref={scrollContainerRef}
-                        className="col-span-2 h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
+                        className="scroll-container col-span-2 h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
                     >
 
                         {projects.map((project, index) => (
@@ -132,25 +132,23 @@ const Portfolio = () => {
                                 key={project.id}
                                 ref={(el) => (projectRefs.current[index] = el)}
                                 className={`mb-[100px] p-6 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
-                                    ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor} !important`
-                                    : "bg-gray-800/80  "
+                                    ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor}`
+                                    : "bg-gray-800/80"
                                     }`}
                             >
                                 {/* Image Section */}
                                 <div className="w-full h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                                    {/* Replace the placeholder with an actual image */}
+                                    {/* Lazy load image */}
                                     <img
-                                        src={`${project.img_url}`} // Replace with your image URL
+                                        src={project.img_url}
                                         alt={`${project.title} Thumbnail`}
                                         className="w-full h-full object-cover rounded-lg"
+                                        loading="lazy"  // Lazy load images
                                     />
                                 </div>
 
                                 {/* Title */}
-                                <h3
-                                    className={`text-2xl font-bold mb-3 ${index === activeIndex ? project.textColor : "text-white"
-                                        }`}
-                                >
+                                <h3 className={`text-2xl font-bold mb-3 ${index === activeIndex ? project.textColor : "text-white"}`}>
                                     {project.title}
                                 </h3>
 
@@ -160,7 +158,7 @@ const Portfolio = () => {
                                         <span
                                             key={i}
                                             className={`px-3 py-1 rounded-full text-xs ${index === activeIndex
-                                                ? project.tagColor + " text-white shadow-lg"
+                                                ? `${project.tagColor} text-white shadow-lg`
                                                 : "bg-gray-700 hover:bg-gray-600"
                                                 }`}
                                         >
@@ -181,12 +179,7 @@ const Portfolio = () => {
                                                 ? `${project.bgColor} text-white`
                                                 : "bg-gray-800/80"
                                             } transition-all hover:opacity-90`}
-                                        onClick={() => {
-                                            // Navigate to the project URL
-                                            // window.location.href = project.url; // Use the `url` property from the project object
-                                            //open in new tab
-                                            window.open(project.url, "_blank");
-                                        }}
+                                        onClick={() => window.open(project.url, "_blank")}
                                     >
                                         View Details
                                     </button>
