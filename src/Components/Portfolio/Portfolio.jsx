@@ -118,7 +118,16 @@ const Portfolio = () => {
                                     onClick={() => {
                                         const ref = projectRefs.current[index];
                                         if (ref) {
-                                            ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                            if (window.innerWidth < 768 && scrollContainerRef.current) {
+                                                // Center the card in the horizontal scroll container
+                                                const container = scrollContainerRef.current;
+                                                const cardRect = ref.getBoundingClientRect();
+                                                const containerRect = container.getBoundingClientRect();
+                                                const scrollLeft = container.scrollLeft + (cardRect.left - containerRect.left) - (containerRect.width / 2 - cardRect.width / 2);
+                                                container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+                                            } else if (window.innerWidth >= 768) {
+                                                ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                            }
                                         }
                                         setActiveIndex(index);
                                     }}
@@ -162,72 +171,112 @@ const Portfolio = () => {
                     </div>
 
                     {/* Right scrollable content */}
-                    <div
-                        ref={scrollContainerRef}
-                        className="scroll-container col-span-2 h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
-                    >
-
-                        {projects.map((project, index) => (
-                            <div
-                                key={project.id}
-                                ref={(el) => (projectRefs.current[index] = el)}
-                                className={`mb-[100px] p-6 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
-                                    ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor}`
-                                    : "bg-gray-800/80"
+                    <div className="col-span-2">
+                        {/* Mobile: horizontal scrollable projects */}
+                        <div
+                            ref={scrollContainerRef}
+                            className="md:hidden flex flex-row gap-4 overflow-x-auto pb-4 px-2 snap-x snap-mandatory"
+                            style={{ scrollBehavior: 'smooth' }}
+                        >
+                            {projects.map((project, index) => (
+                                <div
+                                    key={project.id}
+                                    ref={(el) => (projectRefs.current[index] = el)}
+                                    className={`w-80 min-w-[320px] max-w-[320px] snap-center p-4 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
+                                        ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor}`
+                                        : "bg-gray-800/80"
                                     }`}
-                            >
-                                {/* Image Section */}
-                                <div className="w-full h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
-                                    {/* Lazy load image */}
-                                    <img
-                                        src={project.img_url}
-                                        alt={`${project.title} Thumbnail`}
-                                        className="w-full h-full object-cover rounded-lg"
-                                        loading="lazy"  // Lazy load images
-                                    />
-                                </div>
-
-                                {/* Title */}
-                                <h3 className={`text-2xl font-bold mb-3 ${index === activeIndex ? project.textColor : "text-white"}`}>
-                                    {project.title}
-                                </h3>
-
-                                {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tags.map((tag, i) => (
-                                        <span
-                                            key={i}
-                                            className={`px-3 py-1 rounded-full text-xs ${index === activeIndex
-                                                ? `${project.tagColor} text-white shadow-lg`
-                                                : "bg-gray-700 hover:bg-gray-600"
+                                >
+                                    {/* Image Section */}
+                                    <div className="w-full h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                        <img
+                                            src={project.img_url}
+                                            alt={`${project.title} Thumbnail`}
+                                            className="w-full h-full object-cover rounded-lg"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <h3 className={`text-2xl font-bold mb-3 ${index === activeIndex ? project.textColor : "text-white"}`}>{project.title}</h3>
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.tags.map((tag, i) => (
+                                            <span
+                                                key={i}
+                                                className={`px-3 py-1 rounded-full text-xs ${index === activeIndex
+                                                    ? `${project.tagColor} text-white shadow-lg`
+                                                    : "bg-gray-700 hover:bg-gray-600"
                                                 }`}
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                {/* Description */}
-                                <p className="text-gray-300 leading-relaxed flex-grow">
-                                    {project.description}
-                                </p>
-
-                                {/* Button */}
-                                <div className="mt-4">
-                                    <button
-                                        className={`px-4 py-2 rounded-md ${index === activeIndex
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-300 leading-relaxed flex-grow">{project.description}</p>
+                                    <div className="mt-4">
+                                        <button
+                                            className={`px-4 py-2 rounded-md ${index === activeIndex
                                                 ? `${project.bgColor} text-white`
                                                 : "bg-gray-800/80"
                                             } transition-all hover:opacity-90`}
-                                        onClick={() => window.open(project.url, "_blank")}
-                                    >
-                                        View Details
-                                    </button>
+                                            onClick={() => window.open(project.url, "_blank")}
+                                        >
+                                            View Details
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-
-                        <div className="h-[100px]"></div>
+                            ))}
+                        </div>
+                        {/* Desktop: vertical scrollable projects */}
+                        <div
+                            className="hidden md:block scroll-container h-[600px] overflow-y-auto pr-4 rounded-lg shadow-lg bg-gray-900 flex-col justify-center"
+                        >
+                            {projects.map((project, index) => (
+                                <div
+                                    key={project.id}
+                                    ref={(el) => (projectRefs.current[index] = el)}
+                                    className={`mb-[100px] p-6 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
+                                        ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor}`
+                                        : "bg-gray-800/80"
+                                    }`}
+                                >
+                                    {/* Image Section */}
+                                    <div className="w-full h-40 bg-gray-700 rounded-lg mb-4 flex items-center justify-center">
+                                        <img
+                                            src={project.img_url}
+                                            alt={`${project.title} Thumbnail`}
+                                            className="w-full h-full object-cover rounded-lg"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <h3 className={`text-2xl font-bold mb-3 ${index === activeIndex ? project.textColor : "text-white"}`}>{project.title}</h3>
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.tags.map((tag, i) => (
+                                            <span
+                                                key={i}
+                                                className={`px-3 py-1 rounded-full text-xs ${index === activeIndex
+                                                    ? `${project.tagColor} text-white shadow-lg`
+                                                    : "bg-gray-700 hover:bg-gray-600"
+                                                }`}
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-300 leading-relaxed flex-grow">{project.description}</p>
+                                    <div className="mt-4">
+                                        <button
+                                            className={`px-4 py-2 rounded-md ${index === activeIndex
+                                                ? `${project.bgColor} text-white`
+                                                : "bg-gray-800/80"
+                                            } transition-all hover:opacity-90`}
+                                            onClick={() => window.open(project.url, "_blank")}
+                                        >
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                            <div className="h-[100px]"></div>
+                        </div>
                     </div>
                 </div>
             </div>
