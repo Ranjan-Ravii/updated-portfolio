@@ -57,8 +57,8 @@ const About = () => {
                 About Me
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed text-justify">
-                I'm an undergraduate student in the 3rd year of my Bachelor of Technology (B.Tech) degree in Artificial Intelligence and Machine Learning (AIML) and
-                a full stack software developer passionate about building
+                I'm an undergraduate student in the 4th year of my Bachelor of Technology (B.Tech) degree in Artificial Intelligence and Machine Learning (AIML) and
+                a full stack software developer on MERN Stack passionate about building
                 user-centric applications. I specialize in creating scalable,
                 modern web applications using technologies like React, Tailwind CSS, Node.js,
                 and Express.js. With a strong foundation in both frontend and

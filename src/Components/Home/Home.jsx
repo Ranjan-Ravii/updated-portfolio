@@ -46,7 +46,7 @@ const Home = () => {
               Hi, I'm
             </motion.p>
             <motion.h1
-              className="text-5xl md:text-5xl lg:text-6xl font-bold leading-tight mt-2"
+              className="text-6xl md:text-5xl lg:text-6xl font-bold leading-tight mt-2"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
