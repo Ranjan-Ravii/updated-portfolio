@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const About = () => {
@@ -40,24 +39,24 @@ const About = () => {
   return (
     <section
       id="about"
-      className=" bg-gradient-to-br from-gray-500 to-[#0A0A23] text-gray-100 py-12 px-4 flex items-center"
+      className="bg-gradient-to-br from-gray-500 to-[#0A0A23] text-gray-100 py-12 px-4 flex items-center justify-center"
     >
       <div className="max-w-6xl mx-auto w-full ">
         {/* Main Content Container - Stack on mobile, side-by-side on desktop */}
-        <div className="flex flex-col md:flex-row md:gap-8 md:items-center">
+        <div className="flex flex-col md:flex-row md:gap-8 md:items-center justify-center">
           {/* About Me Section - Full width on mobile, left side on desktop */}
-          <div className="flex flex-col items-center mb-12 md:mb-0 md:w-2/5">
+          <div className="flex flex-col items-center mb-12 md:mb-0 md:w-2/5 justify-center">
             <img 
             className="w-7/12 bg-cover rounded-lg shadow-lg mb-6" 
             src="/ravi-official.jpg"
             />
             
             {/* About Text */}
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold mb-4 text-blue-500">
+            <div className="w-full">
+              <h2 className="text-3xl font-bold mb-4 text-blue-500 text-center">
                 About Me
               </h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-300 leading-relaxed text-justify">
                 I'm an undergraduate student in the 3rd year of my Bachelor of Technology (B.Tech) degree in Artificial Intelligence and Machine Learning (AIML) and
                 a full stack software developer passionate about building
                 user-centric applications. I specialize in creating scalable,
@@ -69,22 +68,21 @@ const About = () => {
             </div>
           </div>
 
-          {/* Skills Section - Full width on mobile, right side on desktop */}
-          <div className="md:w-3/5">
-            <h3 className="text-2xl font-bold mb-6 text-blue-500 text-center md:text-left">
+          {/* Skills Section - right on desktop, center on mobile */}
+          <div className="md:w-3/5 flex flex-col items-center md:items-end">
+            <h3 className="text-2xl font-bold mb-6 text-blue-500 w-full text-center md:text-center md:text-left">
               My Skills
             </h3>
-            
             {/* Explicitly creating two columns with flexbox */}
-            <div className="flex flex-row gap-3">
+            <div className="flex flex-row gap-3 w-full justify-center md:justify-end">
               {/* Left Column */}
-              <div className="w-1/2 flex flex-col gap-3">
+              <div className="w-1/2 flex flex-col gap-3 items-center md:items-end">
                 {leftSkills.map(({category, items}, index) => (
-                  <div key={index} className="p-3 bg-transparent rounded-lg shadow-md h-auto">
-                    <h4 className="text-lg font-bold mb-2 text-blue-500">
+                  <div key={index} className="p-3 bg-transparent rounded-lg shadow-md h-auto w-full text-left">
+                    <h4 className="text-lg font-bold mb-2 text-blue-500 w-full text-left">
                       {category}
                     </h4>
-                    <ul className="list-disc list-inside text-xs md:text-sm text-gray-200">
+                    <ul className="list-disc list-inside text-xs md:text-sm text-gray-200 w-full text-left">
                       {items.map((item, idx) => (
                         <li key={idx} className="mb-1">{item}</li>
                       ))}
@@ -92,15 +90,14 @@ const About = () => {
                   </div>
                 ))}
               </div>
-                
               {/* Right Column */}
-              <div className="w-1/2 flex flex-col gap-3">
+              <div className="w-1/2 flex flex-col gap-3 items-center md:items-end">
                 {rightSkills.map(({category, items}, index) => (
-                  <div key={index} className="p-3 bg-transparent rounded-lg shadow-md h-auto">
-                    <h4 className="text-lg font-bold mb-2 text-blue-400">
+                  <div key={index} className="p-3 bg-transparent rounded-lg shadow-md h-auto w-full text-left">
+                    <h4 className="text-lg font-bold mb-2 text-blue-400 w-full text-left">
                       {category}
                     </h4>
-                    <ul className="list-disc list-inside text-xs md:text-sm text-gray-300">
+                    <ul className="list-disc list-inside text-xs md:text-sm text-gray-300 w-full text-left">
                       {items.map((item, idx) => (
                         <li key={idx} className="mb-1">{item}</li>
                       ))}

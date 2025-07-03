@@ -6,6 +6,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [popup, setPopup] = useState({ show: false, message: '', type: 'success' });
 
   const form = useRef();
 
@@ -36,16 +37,18 @@ const Contact = () => {
         "service_0r4pc7y",
         "template_zk4lk0i",
         parameters,
-        "egcfkHhJ4n7u-xD60"
+        "lyjy9L8-C9S5JL-up"
       )
       .then((response) => {
-        alert("Email sent successfully!", response);
+        setPopup({ show: true, message: "Email sent successfully!", type: 'success' });
         setName("");
         setEmail("");
         setMessage("");
+        setTimeout(() => setPopup({ show: false, message: '', type: 'success' }), 3000);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        setPopup({ show: true, message: "Failed to send email. Please try again.", type: 'error' });
+        setTimeout(() => setPopup({ show: false, message: '', type: 'error' }), 3000);
       });
   };
 
@@ -56,6 +59,14 @@ const Contact = () => {
   return (
     <>
       <div className="text-center mb-16 py-20 bg-gradient-to-br from-[#0A0A23] to-[#162B44] relative overflow-hidden">
+        {/* Popup message */}
+        {popup.show && (
+          <div className={`fixed top-8 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded shadow-lg text-white font-semibold transition-all duration-300
+            ${popup.type === 'success' ? 'bg-green-600' : 'bg-red-600'}`}
+          >
+            {popup.message}
+          </div>
+        )}
         <h2 className="text-4xl font-bold text-white mb-5 text-center">
           Get in <span className="text-blue-400">Touch</span>
         </h2>
@@ -149,25 +160,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      {/* Remove any unnecessary padding or margin */}
-      <style jsx>{`
-        body, html {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        @media (max-width: 768px) {
-          .grid {
-            display: flex;
-            flex-direction: column;
-          }
-          #message {
-            height: 100px; /* Adjust the height as needed */
-          }
-        }
-      `}</style>
     </>
   );
 };

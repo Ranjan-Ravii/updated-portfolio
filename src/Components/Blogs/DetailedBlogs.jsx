@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { blogs } from './BlogsData';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 
@@ -7,6 +7,7 @@ const DetailedBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // Scroll to top when the component is mounted
   useEffect(() => {
@@ -31,10 +32,19 @@ const DetailedBlog = () => {
     return (
       <div className="flex flex-col justify-center items-center min-h-screen bg-[#162B44] text-white p-6">
         <h2 className="text-3xl font-bold mb-4">Blog Not Found</h2>
-        <Link to="/" className="flex items-center text-[#FF6500] hover:text-white transition-colors">
+        <button
+          onClick={() => {
+            navigate('/', { replace: true });
+            setTimeout(() => {
+              const el = document.getElementById('blogs');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+          }}
+          className="flex items-center text-[#FF6500] hover:text-white transition-colors"
+        >
           <ArrowLeft size={16} className="mr-2" />
           Back to Home
-        </Link>
+        </button>
       </div>
     );
   }
@@ -43,13 +53,19 @@ const DetailedBlog = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#0A0A23] to-[#162B44] py-16">
       <div className="max-w-4xl mx-auto px-6">
         {/* Back Button */}
-        <Link
-          to="/"
+        <button
+          onClick={() => {
+            navigate('/', { replace: true });
+            setTimeout(() => {
+              const el = document.getElementById('blogs');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+          }}
           className="inline-flex items-center text-[#FF6500] hover:text-white transition-colors mb-8 text-lg font-medium"
         >
           <ArrowLeft size={20} className="mr-2" />
-          Back to Home
-        </Link>
+          Back to Blogs
+        </button>
 
         {/* Blog Header */}
         <div className="mb-10">
@@ -71,7 +87,7 @@ const DetailedBlog = () => {
 
         {/* Blog Image */}
         <div className="rounded-lg overflow-hidden mb-10 shadow-lg">
-          <img src={blog.image} alt={blog.title} className="w-full h-auto object-cover" />
+          <img src={blog.image} alt={blog.title} className="w-full h-auto object-cover" loading="lazy" />
         </div>
 
         {/* Blog Content */}

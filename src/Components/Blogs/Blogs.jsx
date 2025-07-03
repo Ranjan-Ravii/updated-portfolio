@@ -55,6 +55,7 @@ const Blogs = () => {
                     src={blog.image}
                     alt={blog.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1E3E62] to-transparent opacity-70" />
                   <span className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">

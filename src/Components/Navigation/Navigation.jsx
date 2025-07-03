@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,31 +13,37 @@ function Navigation() {
   ];
 
   useEffect(() => {
-
+    let ticking = false;
     const handleScroll = () => {
-      const sectionPositions = navItems.map((item) => {
-        const section = document.getElementById(item.href);
-        if (section) {
-          return {
-            id: item.href,
-            top: section.offsetTop - 200, // Offset for better detection
-            bottom: section.offsetTop + section.offsetHeight - 200,
-          };
-        }
-        return null;
-      }).filter(Boolean);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sectionPositions = navItems.map((item) => {
+            const section = document.getElementById(item.href);
+            if (section) {
+              return {
+                id: item.href,
+                top: section.offsetTop - 200,
+                bottom: section.offsetTop + section.offsetHeight - 200,
+              };
+            }
+            return null;
+          }).filter(Boolean);
 
-      const currentPosition = window.scrollY;
+          const currentPosition = window.scrollY;
 
-      const currentSection = sectionPositions.find(
-        (section) => currentPosition >= section.top && currentPosition < section.bottom
-      );
+          const currentSection = sectionPositions.find(
+            (section) => currentPosition >= section.top && currentPosition < section.bottom
+          );
 
-      if (currentSection) {
-        setActiveSection(currentSection.id);
-        window.history.pushState(null, "", `#${currentSection.id}`);
-      } else {
-        setActiveSection(''); // Reset if no section matches
+          if (currentSection && activeSection !== currentSection.id) {
+            setActiveSection(currentSection.id);
+            window.history.pushState(null, "", `#${currentSection.id}`);
+          } else if (!currentSection && activeSection !== '') {
+            setActiveSection('');
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -45,7 +51,7 @@ function Navigation() {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navItems]);
+  }, [navItems, activeSection]);
 
   const handleClick = (elementId) => {
     const element = document.getElementById(elementId);

@@ -9,7 +9,7 @@ const Portfolio = () => {
     const projects = [
         {
             id: 1,
-            title: "Video Streaming Platform",
+            title: "Streamify",
             url: "https://example.com/",
             img_url: "/live-streaming.png",
             description:
@@ -89,7 +89,7 @@ const Portfolio = () => {
     };
 
     useEffect(() => {
-        const throttleScroll = _.throttle(handleScroll, 100);  // Throttle scroll to run every 100ms
+        const throttleScroll = _.throttle(handleScroll, 200);  // Throttle scroll to run every 200ms
         const scrollContainer = scrollContainerRef.current;
         if (scrollContainer) {
             scrollContainer.addEventListener("scroll", throttleScroll);
@@ -103,22 +103,62 @@ const Portfolio = () => {
                 <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-14">
-                    {/* Left navigation panel */}
-                    <div className="flex flex-col gap-4">
-                        {projects.map((project, index) => (
-                            <div
-                                key={project.id}
-                                className={`flex items-center gap-4 p-4 rounded-lg transition-all duration-300 ${index === activeIndex
-                                    ? `${project.bgColor} text-white shadow-lg`
-                                    : "bg-gray-700 hover:bg-gray-600"
-                                    }`}
-                            >
-                                <span className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-900 text-white font-bold">
-                                    {project.id}
-                                </span>
-                                <span className="font-medium">{project.title}</span>
-                            </div>
-                        ))}
+                    {/* Navigation panel: horizontal scroll on mobile, vertical on desktop */}
+                    <div className="col-span-1 w-full md:w-auto">
+                        {/* Mobile: horizontal scrollable nav */}
+                        <div className="flex md:hidden overflow-x-auto gap-2 pb-2 -mx-4 px-4">
+                            {projects.map((project, index) => (
+                                <button
+                                    key={project.id}
+                                    className={`relative flex flex-col items-center px-4 py-2 rounded-lg transition-all duration-300 whitespace-nowrap ${index === activeIndex
+                                        ? `${project.bgColor} text-white shadow-lg`
+                                        : "bg-gray-700 hover:bg-gray-600 text-gray-200"
+                                        }`}
+                                    style={{ cursor: 'pointer', minWidth: '120px' }}
+                                    onClick={() => {
+                                        const ref = projectRefs.current[index];
+                                        if (ref) {
+                                            ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        }
+                                        setActiveIndex(index);
+                                    }}
+                                >
+                                    <span className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-900 text-white font-bold mb-1">
+                                        {project.id}
+                                    </span>
+                                    <span className="font-medium text-xs">{project.title}</span>
+                                    {/* Animated indicator (bottom bar) */}
+                                    <span className={`absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-8 rounded-full transition-all duration-300 ${index === activeIndex ? project.bgColor : 'bg-transparent'}`}></span>
+                                </button>
+                            ))}
+                        </div>
+                        {/* Desktop: vertical nav */}
+                        <div className="hidden md:flex flex-col gap-4">
+                            {projects.map((project, index) => (
+                                <div
+                                    key={project.id}
+                                    className={`relative flex items-center gap-4 p-4 rounded-lg transition-all duration-300 ${index === activeIndex
+                                        ? `${project.bgColor} text-white shadow-lg`
+                                        : "bg-gray-700 hover:bg-gray-600"
+                                        }`}
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={() => {
+                                        const ref = projectRefs.current[index];
+                                        if (ref) {
+                                            ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        }
+                                        setActiveIndex(index);
+                                    }}
+                                >
+                                    {/* Animated indicator (vertical bar) */}
+                                    <span className={`absolute left-0 top-1/2 -translate-y-1/2 h-10 w-1 rounded-full transition-all duration-300 ${index === activeIndex ? project.bgColor : 'bg-transparent'}`}></span>
+                                    <span className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-900 text-white font-bold">
+                                        {project.id}
+                                    </span>
+                                    <span className="font-medium">{project.title}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Right scrollable content */}
