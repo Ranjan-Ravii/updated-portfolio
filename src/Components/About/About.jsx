@@ -57,8 +57,8 @@ const About = () => {
                 About Me
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed text-justify">
-                I'm an undergraduate student in the 4th year of my Bachelor of Technology (B.Tech) degree in Artificial Intelligence and Machine Learning (AIML) and
-                a full stack software developer on MERN Stack passionate about building
+                I'm an undergraduate student in the 3rd year of my Bachelor of Technology (B.Tech) degree in Artificial Intelligence and Machine Learning (AIML) and
+                a full stack software developer passionate about building
                 user-centric applications. I specialize in creating scalable,
                 modern web applications using technologies like React, Tailwind CSS, Node.js,
                 and Express.js. With a strong foundation in both frontend and
@@ -70,13 +70,13 @@ const About = () => {
 
           {/* Skills Section - right on desktop, center on mobile */}
           <div className="md:w-3/5 flex flex-col items-center md:items-end">
-            <h3 className="text-2xl font-bold mb-6 text-blue-500 w-full text-center md:text-center md:text-left">
+            <h3 className="text-3xl font-bold mb-6 text-blue-500 w-full text-center md:text-center md:text-left">
               My Skills
             </h3>
             {/* Explicitly creating two columns with flexbox */}
             <div className="flex flex-row gap-3 w-full justify-center md:justify-end">
               {/* Left Column */}
-              <div className="w-1/2 flex flex-col gap-3 items-center md:items-end">
+              <div className="w-1/3 flex flex-col gap-3 items-center md:items-end">
                 {leftSkills.map(({category, items}, index) => (
                   <div key={index} className="p-3 bg-transparent rounded-lg shadow-md h-auto w-full text-left">
                     <h4 className="text-lg font-bold mb-2 text-blue-500 w-full text-left">
@@ -91,7 +91,7 @@ const About = () => {
                 ))}
               </div>
               {/* Right Column */}
-              <div className="w-1/2 flex flex-col gap-3 items-center md:items-end">
+              <div className="w-1/3 flex flex-col gap-3 items-center md:items-end">
                 {rightSkills.map(({category, items}, index) => (
                   <div key={index} className="p-3 bg-transparent rounded-lg shadow-md h-auto w-full text-left">
                     <h4 className="text-lg font-bold mb-2 text-blue-400 w-full text-left">

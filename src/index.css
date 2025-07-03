@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'OskariG2';
+  src: url('./assets/Poppins-Bold.ttf') format('ttf');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+body {
+  @apply font-oskari;
+}

@@ -37,24 +37,18 @@ const Home = () => {
           
           {/* Text content - second on mobile, first on desktop */}
           <div className="w-full font-2xl  md:w-1/2 md:order-1 text-center md:text-left">
-            <motion.p
-              className="text-rose-400 font-black text-lg uppercase tracking-wider"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Hi, I'm
-            </motion.p>
+            
             <motion.h1
-              className="text-6xl md:text-5xl lg:text-6xl font-bold leading-tight mt-2"
+              className="font-oskari font-black uppercase text-white text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-tight mt-2"
+              style={{ letterSpacing: '-0.04em' }}
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Full Stack <br /> Software <br /> Developer.
+              FULL<br />Stack<br />Developer<span className="text-white">.</span>
             </motion.h1>
             <motion.p
-              className="text-gray-300 mt-4 text-sm md:text-base"
+              className="text-gray-100 mt-4 text-sm md:text-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -75,7 +69,7 @@ const Home = () => {
               </button>
               <button
                 onClick={sendMail}
-                className="border border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white py-2 px-6 rounded-md transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md transition-all duration-300"
               >
                 Contact Me
               </button>

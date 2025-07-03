@@ -118,14 +118,9 @@ const Portfolio = () => {
                                     onClick={() => {
                                         const ref = projectRefs.current[index];
                                         if (ref) {
-                                            if (window.innerWidth < 768 && scrollContainerRef.current) {
-                                                // Center the card in the horizontal scroll container
-                                                const container = scrollContainerRef.current;
-                                                const cardRect = ref.getBoundingClientRect();
-                                                const containerRect = container.getBoundingClientRect();
-                                                const scrollLeft = container.scrollLeft + (cardRect.left - containerRect.left) - (containerRect.width / 2 - cardRect.width / 2);
-                                                container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-                                            } else if (window.innerWidth >= 768) {
+                                            if (window.innerWidth < 768) {
+                                                ref.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                                            } else {
                                                 ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                             }
                                         }
@@ -175,14 +170,14 @@ const Portfolio = () => {
                         {/* Mobile: horizontal scrollable projects */}
                         <div
                             ref={scrollContainerRef}
-                            className="md:hidden flex flex-row gap-4 overflow-x-auto pb-4 px-2 snap-x snap-mandatory"
+                            className="md:hidden flex flex-row gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
                             style={{ scrollBehavior: 'smooth' }}
                         >
                             {projects.map((project, index) => (
                                 <div
                                     key={project.id}
                                     ref={(el) => (projectRefs.current[index] = el)}
-                                    className={`w-80 min-w-[320px] max-w-[320px] snap-center p-4 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
+                                    className={`w-[90vw] min-w-[90vw] max-w-[90vw] snap-center p-4 rounded-xl h-auto flex flex-col transition-all duration-300 ${index === activeIndex
                                         ? `bg-opacity-10 border-l-4 ${project.borderColor} ${project.bgColor}`
                                         : "bg-gray-800/80"
                                     }`}
