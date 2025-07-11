@@ -99,6 +99,12 @@ const DetailedBlog = () => {
             if (block.type === 'heading') {
               return <h2 key={index} className="text-3xl font-bold text-white mt-8 mb-4">{block.text}</h2>;
             }
+            if (block.type === 'subheading') {
+              return <h2 key={index} className="text-xl font-bold text-white mt-8 mb-4">{block.text}</h2>;
+            }
+            if (block.type === 'image') {
+              return <img key={index} src={block.src} alt={block.alt} className="w-full h-auto object-cover" loading="lazy" />;
+            }
             if (block.type === 'list') {
               return (
                 <ul key={index} className="list-disc list-inside ml-6">
@@ -121,7 +127,22 @@ const DetailedBlog = () => {
             return null;
           })}
         </div>
+
+        <button
+          onClick={() => {
+            navigate('/', { replace: true });
+            setTimeout(() => {
+              const el = document.getElementById('blogs');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+          }}
+          className="flex items-center mt-20 text-[#FF6500] hover:text-white transition-colors"
+        >
+          <ArrowLeft size={16} className="mr-2" />
+          Back to Home
+        </button>
       </div>
+      
     </div>
   );
 };

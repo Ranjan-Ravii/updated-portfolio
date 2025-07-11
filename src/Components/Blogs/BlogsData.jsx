@@ -1,3 +1,5 @@
+import { text } from "framer-motion/client";
+
 // BlogsData.js (create this file in your Blogs folder)
 export const blogs = [
     {
@@ -185,77 +187,86 @@ export const blogs = [
             { type: "paragraph", text: "Web performance optimization is a continuous process—not a one-time fix. By adopting these strategies and leveraging the right tools, you can create a website that delights users, ranks higher in search results, and drives measurable business growth. In today's fast-paced digital landscape, speed isn't just a feature; it's a fundamental requirement for success." }
         ]
     },
-//     {
-//         id: 2,
-//         title: "Web Performance Optimization",
-//         date: "March 5, 2024",
-//         description: "Essential techniques to improve your website's loading speed and overall performance.",
-//         readTime: "6 min read",
-//         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
-//         category: "Performance",
-//         content: [
-//             {
-//                 type: "paragraph",
-//                 text: "Website performance directly impacts user experience and conversion rates. Research shows that users abandon sites that take more than 3 seconds to load, making performance optimization a critical aspect of web development."
-//             },
-//             {
-//                 type: "heading",
-//                 text: "Core Web Vitals"
-//             },
-//             {
-//                 type: "paragraph",
-//                 text: "Google's Core Web Vitals are a set of metrics that measure user experience on the web. They focus on loading performance (LCP), interactivity (FID), and visual stability (CLS)."
-//             },
-//             {
-//                 type: "heading",
-//                 text: "Image Optimization"
-//             },
-//             {
-//                 type: "paragraph",
-//                 text: "Images often account for the largest portion of a page's weight. Properly optimizing images can dramatically improve load times."
-//             },
-//             {
-//                 type: "list",
-//                 items: [
-//                     "Use modern formats like WebP or AVIF",
-//                     "Implement responsive images with srcset",
-//                     "Lazy load images below the fold",
-//                     "Appropriately size images for their display dimensions"
-//                 ]
-//             },
-//             {
-//                 type: "heading",
-//                 text: "Code Splitting and Lazy Loading"
-//             },
-//             {
-//                 type: "paragraph",
-//                 text: "Modern JavaScript frameworks support code splitting, allowing you to break your application into smaller chunks that load on demand."
-//             },
-//             {
-//                 type: "code",
-//                 language: "javascript",
-//                 text: `// Instead of importing directly
-//   // import LargeComponent from './LargeComponent';
-  
-//   // Use dynamic import for code splitting
-//   import React, { lazy, Suspense } from 'react';
-  
-//   const LargeComponent = lazy(() => import('./LargeComponent'));
-  
-//   function MyComponent() {
-//     return (
-//       <Suspense fallback={<div>Loading...</div>}>
-//         <LargeComponent />
-//       </Suspense>
-//     );
-//   }`
-//             },
-//             {
-//                 type: "conclusion",
-//                 text: "Performance optimization is an ongoing process rather than a one-time task. Regularly measuring and improving your site's performance will lead to better user experience, higher conversion rates, and improved search engine rankings."
-//             }
-//         ]
-//     },
+    {
+        id: 3,
+        title: "Understanding Access Token and Refresh Token",
+        date: "july 07, 2025",
+        description: "A Method adopted for avoiding the frequent or multiple authentication while browsing the website.",
+        readTime: "6 min read",
+        image: "../public/accesstoken-displayImage.png",
+        category: "Performance",
+        content: [
+            {type: "paragraph", text: "Access tokens and refresh tokens are both authentication parameters used in OAuth 2.0 and OpenID Connect (OIDC)—which are popular protocols and standards for secure authentication. These tokens help identify and authorize users or services when interacting with APIs or servers."},
+            {type : "paragraph", text: "Access Token: An access token is a short-lived credential that is used to authenticate a user or services on a server. It typically has a limited lifespan (e.g., minutes or hours) and is included in API requests to authorize the user to perform actions on the server."},
+            {type : "paragraph" , text: "Refresh Token: A refresh token is a long-lived credential used to obtain a new access token once the original one expires. The refresh token is securely stored and can be used by the client to request a new access token without requiring the user to log in again."},
+            {type: "heading", text : "How access token and refresh token works?"},
+            {type: "paragraph", text: "Now let’s take a scenario where the user logins, and go step by step to understand the whole concept."},
+            {
+                type: "subheading", text : "Step 1. User login"
+            },
+            {
+                type: "paragraph", 
+                text : "The user enters the credentials (say, email, password) through the frontend, the frontend sends them to backend."
+            },
+            {
+                type : "subheading", 
+                text: "Step 2. Server verifies and responds with tokens"
+            },
+            {
+                type: "paragraph", 
+                text : "Once the credentials reach the server, it verifies them and generates the access and refresh tokens. Both tokens are sent to the frontend/client. Again, the access token is short-lived and the refresh token is comparatively long-lived, though both are relative to the cases in which they are being used."
+            },
+            {
+                type : "subheading", 
+                text : "Step 3: Client stores the tokens"
+            },
+            {
+                type: "paragraph",
+                text : "The responded tokens (from backend) are now stored at the client side. The access token in memory (RAM) or local storage (less secure), and the refresh token in a secure HTTP-only cookie (best practice)."
+            }, 
+            {
+                type: "subheading",
+                text : "Step 4. Client accesses a protected resource"
+            },
+            {
+                type: "paragraph",
+                text : "Till here, the user is able to access the data. Every time the client wants to access data, the backend checks: is the access token valid? Is it expired? If yes, then well and good. If it is expired, then — step 5."
+            },
+            {
+                type: "subheading",
+                text : "Step 5. Access token expires"
+            },
+            {
+                type: "paragraph",
+                text : "After the access token times out, the access token expires. The user tries to access the API again and gets a 401 Unauthorized error. Now the frontend automatically tries to refresh the token."
+            },
+            {
+                type: "subheading   ",
+                text : "Step 6. Backend validates the refresh token"
+            },
+            {
+                type: "paragraph",
+                text : "If the refresh token is still valid: The server issues a new access token. The frontend stores this new token and continues the session without logging in again And if the refresh token is expired or invalid: The user must log in again."
+            },
+            {
+                type : "subheading",
+                text  : "Here's a tabular comparison between Access Token and Refresh Token:"
+            },
+            {
+                type : "image", 
+                src : "../public/accesstoken-refreshtoken-tabular.png",
+                alt : "tublular explanation"
+            },
+            {
+                type :"subheading",
+                text: "conclusion"
+            },
+            {
+                type : "paragraph",
+                text : "When a user logs in, the backend sends an access token (short-lived) and a refresh token (long-lived). The frontend uses the access token for API requests and automatically refreshes it using the refresh token when it expires. If the refresh token is also invalid or expired, the user is logged out and redirected to login."
+            }
+        ]
+    },
 //     {
 //         id: 2,
 //         title: "Web Performance Optimization",

@@ -2,6 +2,7 @@ import React from "react";
 
 const About = () => {
   const skills = {
+    // "Development Stack" : ["HTML", "CSS", "JavaScript", "Frame-work":["React", "Next.js", "Tailwind CSS"]],
     Frontend: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "React", "Next.js"],
     Backend: [
       "Node.js",
@@ -70,7 +71,7 @@ const About = () => {
 
           {/* Skills Section - right on desktop, center on mobile */}
           <div className="md:w-3/5 flex flex-col items-center md:items-end">
-            <h3 className="text-3xl font-bold mb-6 text-blue-500 w-full text-center md:text-center md:text-left">
+            <h3 className="text-3xl font-bold mb-6 text-blue-500 w-full text-center md:text-center">
               My Skills
             </h3>
             {/* Explicitly creating two columns with flexbox */}

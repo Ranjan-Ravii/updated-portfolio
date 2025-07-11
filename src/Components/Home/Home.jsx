@@ -36,10 +36,10 @@ const Home = () => {
           </div>
           
           {/* Text content - second on mobile, first on desktop */}
-          <div className="w-full font-2xl  md:w-1/2 md:order-1 text-center md:text-left">
+          <div className="w-full font-2xl  md:w-1/2 md:text-3rem md:order-1 text-center md:text-left">
             
             <motion.h1
-              className="font-oskari font-black uppercase text-white text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-tight mt-2"
+              className="font-oskari font-black uppercase text-white text-6xl md:text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-tight mt-2"
               style={{ letterSpacing: '-0.04em' }}
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
