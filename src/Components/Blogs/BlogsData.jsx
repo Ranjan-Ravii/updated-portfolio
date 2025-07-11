@@ -193,7 +193,7 @@ export const blogs = [
         date: "july 07, 2025",
         description: "A Method adopted for avoiding the frequent or multiple authentication while browsing the website.",
         readTime: "6 min read",
-        image: "../public/accesstoken-displayImage.png",
+        image: "/accesstoken-displayImage.png",
         category: "Performance",
         content: [
             {type: "paragraph", text: "Access tokens and refresh tokens are both authentication parameters used in OAuth 2.0 and OpenID Connect (OIDC)—which are popular protocols and standards for secure authentication. These tokens help identify and authorize users or services when interacting with APIs or servers."},
