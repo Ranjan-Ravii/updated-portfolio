@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { blogs } from "../blogs/BlogsData";
+import { blogs } from "../blogs/BlogsData.jsx";
 import { motion } from "framer-motion";
 
 const Blogs = () => {

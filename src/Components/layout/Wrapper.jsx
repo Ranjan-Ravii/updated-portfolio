@@ -1,12 +1,12 @@
 import Navigation from "./Navigation";
 import LightRays from "../effects/LightRays.jsx";
 
-import Home from "../pages/Home";
-import About from "../pages/About";
+import Home from "../pages/Home.jsx";
+import About from "../pages/About.jsx";
 import Projects from "../pages/Portfolio.jsx";
-import Blogs from "../pages/Blogs";
-import Contact from "../pages/Contact";
-import Footer from "./Footer";
+import Blogs from "../pages/Blogs.jsx";
+import Contact from "../pages/Contact.jsx";
+import Footer from "./Footer.jsx";
 
 import React from "react";
 

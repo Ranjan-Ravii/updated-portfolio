@@ -22,14 +22,14 @@
 
 
 import { Routes, Route } from "react-router-dom";
-import Wrapper from "./Components/layout/Wrapper";
+import Wrapper from "./Components/layout/Wrapper.jsx";
 
-import Home from "./Components/pages/Home";
-import About from "./Components/pages/About";
-import Blogs from "./Components/pages/Blogs";
-import Portfolio from "./Components/pages/Portfolio";
-import Contact from "./Components/pages/Contact";
-import DetailedBlogs from "./Components/blogs/DetailedBlogs";
+import Home from "./Components/pages/Home.jsx";
+import About from "./Components/pages/About.jsx";
+import Blogs from "./Components/pages/Blogs.jsx";
+import Portfolio from "./Components/pages/Portfolio.jsx";
+import Contact from "./Components/pages/Contact.jsx";
+import DetailedBlogs from "./Components/blogs/DetailedBlogs.jsx";
 
 function App() {
   return (
