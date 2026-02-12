@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { blogs } from './BlogsData';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const DetailedBlog = () => {
   const { id } = useParams();
@@ -9,13 +10,12 @@ const DetailedBlog = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Scroll to top when the component is mounted
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    const foundBlog = blogs.find((b) => b.id.toString() === id); // Ensure type consistency
+    const foundBlog = blogs.find((b) => b.id.toString() === id);
     setBlog(foundBlog);
     setLoading(false);
   }, [id]);
@@ -23,7 +23,14 @@ const DetailedBlog = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-[#162B44]">
-        <div className="text-white text-lg font-medium">Loading...</div>
+        <motion.div
+          className="text-white text-lg font-medium"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          Loading...
+        </motion.div>
       </div>
     );
   }
@@ -31,8 +38,15 @@ const DetailedBlog = () => {
   if (!blog) {
     return (
       <div className="flex flex-col justify-center items-center min-h-screen bg-[#162B44] text-white p-6">
-        <h2 className="text-3xl font-bold mb-4">Blog Not Found</h2>
-        <button
+        <motion.h2
+          className="text-3xl font-bold mb-4"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Blog Not Found
+        </motion.h2>
+        <motion.button
           onClick={() => {
             navigate('/', { replace: true });
             setTimeout(() => {
@@ -41,19 +55,22 @@ const DetailedBlog = () => {
             }, 50);
           }}
           className="flex items-center text-[#FF6500] hover:text-white transition-colors"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <ArrowLeft size={16} className="mr-2" />
           Back to Home
-        </button>
+        </motion.button>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0A0A23] to-[#162B44] py-16">
+    <section className="min-h-screen bg-gradient-to-b from-[#0A0A23] to-[#162B44] py-16">
       <div className="max-w-4xl mx-auto px-6">
         {/* Back Button */}
-        <button
+        <motion.button
           onClick={() => {
             navigate('/', { replace: true });
             setTimeout(() => {
@@ -62,14 +79,24 @@ const DetailedBlog = () => {
             }, 50);
           }}
           className="inline-flex items-center text-[#FF6500] hover:text-white transition-colors mb-8 text-lg font-medium"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <ArrowLeft size={20} className="mr-2" />
           Back to Blogs
-        </button>
+        </motion.button>
 
         {/* Blog Header */}
-        <div className="mb-10">
-          <h1 className="text-5xl font-extrabold text-white mb-6 leading-tight">{blog.title}</h1>
+        <motion.div
+          className="mb-10"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-5xl font-extrabold text-white mb-6 leading-tight">
+            {blog.title}
+          </h1>
           <div className="flex items-center gap-6 text-gray-400 text-sm">
             <div className="flex items-center gap-2">
               <Calendar size={18} />
@@ -83,15 +110,30 @@ const DetailedBlog = () => {
               {blog.category}
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Blog Image */}
-        <div className="rounded-lg overflow-hidden mb-10 shadow-lg">
-          <img src={blog.image} alt={blog.title} className="w-full h-auto object-cover" loading="lazy" />
-        </div>
+        <motion.div
+          className="rounded-lg overflow-hidden mb-10 shadow-lg"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </motion.div>
 
         {/* Blog Content */}
-        <div className="prose prose-lg prose-invert max-w-none leading-relaxed text-gray-300">
+        <motion.div
+          className="prose prose-lg prose-invert max-w-none leading-relaxed text-gray-300"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           {blog.content.map((block, index) => {
             if (block.type === 'paragraph') {
               return <p key={index}>{block.text}</p>;
@@ -126,9 +168,9 @@ const DetailedBlog = () => {
             }
             return null;
           })}
-        </div>
+        </motion.div>
 
-        <button
+        <motion.button
           onClick={() => {
             navigate('/', { replace: true });
             setTimeout(() => {
@@ -137,13 +179,15 @@ const DetailedBlog = () => {
             }, 50);
           }}
           className="flex items-center mt-20 text-[#FF6500] hover:text-white transition-colors"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <ArrowLeft size={16} className="mr-2" />
           Back to Home
-        </button>
+        </motion.button>
       </div>
-      
-    </div>
+    </section>
   );
 };
 

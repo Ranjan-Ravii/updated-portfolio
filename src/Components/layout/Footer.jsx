@@ -6,7 +6,7 @@ const Footer = () => {
     const hoverTextColor = 'hover:text-orange-500';
 
     return (
-        <footer className="py-6 bg-[#0E1D2E] text-[#93B1A6] transition-colors -my-16 duration-300">
+        <footer className="py-6 bbg-transparent text-[#93B1A6] transition-colors  duration-300">
             <div className="container mx-auto text-center">
                 {/* Social Links */}
                 <div className="mb-4 flex justify-center space-x-6">
