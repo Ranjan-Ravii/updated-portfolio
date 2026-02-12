@@ -1,11 +1,11 @@
-import Navigation from "./Navigation";
-import Footer from "./Footer";
+import Navigation from "./Navigation.jsx";
+import Footer from "./Footer.jsx";
 
-import Home from "../pages/Home.jsx";
-import About from "../pages/About.jsx";
-import Projects from "../pages/Portfolio.jsx";
-import Blogs from "../pages/Blogs.jsx";
-import Contact from "../pages/Contact.jsx";
+import Home from "../Pages/Home.jsx";
+import About from "../Pages/About.jsx";
+import Projects from "../Pages/Portfolio.jsx";
+import Blogs from "../Pages/Blogs.jsx";
+import Contact from "../Pages/Contact.jsx";
 
 const Layout = () => {
   return (
