@@ -23,23 +23,14 @@
 
 import { Routes, Route } from "react-router-dom";
 import Wrapper from "./Components/Layout/Wrapper.jsx";
-
-import Home from "./Components/Pages/Home.jsx";
-import About from "./Components/Pages/About.jsx";
-import Blogs from "./Components/Pages/Portfolio.jsx";
-import Portfolio from "./Components/Pages/Portfolio.jsx";
-import Contact from "./Components/Pages/Contact.jsx";
+import MainPage from "./Components/Pages/MainPage.jsx";
 import DetailedBlogs from "./Components/Blogs/DetailedBlogs.jsx";
 
 function App() {
   return (
     <Routes>
       <Route element={<Wrapper />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Portfolio />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/blog/:id" element={<DetailedBlogs />} />
       </Route>
     </Routes>

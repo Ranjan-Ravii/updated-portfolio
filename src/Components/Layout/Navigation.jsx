@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
@@ -35,6 +36,18 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const handleClick = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -61,7 +74,7 @@ const Navigation = () => {
             <button
               key={item.id}
               onClick={() => handleClick(item.id)}
-              className={`relative text-sm font-medium transition-all duration-300
+              className={`relative text-sm font-medium transition-all duration-300 active:scale-95
             ${activeSection === item.id
                   ? "text-blue-400"
                   : "text-gray-300 hover:text-blue-400"
@@ -80,7 +93,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white hover:text-blue-400 transition-colors"
+          className="md:hidden text-white hover:text-blue-400 active:scale-90 transition-all duration-200"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -90,13 +103,19 @@ const Navigation = () => {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+        <motion.div 
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10 overflow-hidden"
+        >
           <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleClick(item.id)}
-                className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300
+                className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95
               ${activeSection === item.id
                     ? "text-blue-400 bg-blue-400/10"
                     : "text-gray-300 hover:text-blue-400 hover:bg-white/5"
@@ -106,7 +125,7 @@ const Navigation = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );

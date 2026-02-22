@@ -14,7 +14,7 @@ const Portfolio = () => {
      {
       id: 2,
       title: "AI-Powered News Research & Retrieval System",
-      url: "https://ranjan-ravii.github.io/password-generator/",
+      url: "https://example.com",
       description:
         `A RAG-powered news analysis platform that processes multiple news sources
 and delivers contextual, fact-grounded answers using LLMs and vector search.`,
@@ -43,7 +43,7 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
       id="portfolio"
       className="relative w-full scroll-mt-24 pt-20"
     >
-      <div className="min-h-screen flex items-center">
+      <div className="min-h-screen flex items-center py-8 sm:py-12 md:py-16">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Section Title */}
@@ -72,14 +72,14 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
                   h-full flex flex-col
                   bg-white dark:bg-black/60
                   border border-gray-200 dark:border-white/10
-                  rounded-xl p-6
+                  rounded-xl p-4 sm:p-5 md:p-6
                   shadow-md hover:shadow-xl
                   transition-all duration-300
                 "
                 >
 
                   {/* Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800 dark:text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800 dark:text-white break-words">
                     {project.title}
                   </h3>
 
@@ -89,16 +89,16 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                     {project.tags.map((tag, idx) => (
                       <span
                         key={idx}
                         className="
-                        px-3 py-1 rounded-full text-sm
+                        px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm
                         bg-gray-100 dark:bg-black/40
                         border border-gray-200 dark:border-white/10
                         text-gray-700 dark:text-gray-300
-                        transition duration-300
+                        transition duration-300 whitespace-nowrap
                       "
                       >
                         {tag}
@@ -113,9 +113,9 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
                     rel="noopener noreferrer"
                     className="
                     mt-auto inline-block text-center
-                    px-4 py-2.5 sm:px-5 sm:py-3 rounded-md text-sm sm:text-base
-                    bg-blue-600 hover:bg-blue-700
-                    text-white transition duration-300 min-h-[44px]
+                    px-4 py-2.5 sm:px-5 sm:py-3 rounded-md text-sm sm:text-base font-medium
+                    bg-blue-600 hover:bg-blue-700 active:scale-95
+                    text-white transition-all duration-300 min-h-[44px]
                   "
                   >
                     View Project

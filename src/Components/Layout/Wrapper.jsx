@@ -1,14 +1,9 @@
 import Navigation from "./Navigation.jsx";
 import LightRays from "../Effects/LightRays.jsx";
-
-import Home from "../Pages/Home.jsx";
-import About from "../Pages/About.jsx";
-import Projects from "../Pages/Portfolio.jsx";
-import Blogs from "../Pages/Blogs.jsx";
-import Contact from "../Pages/Contact.jsx";
 import Footer from "./Footer.jsx";
 
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 const Wrapper = () => {
   return (
@@ -42,26 +37,8 @@ const Wrapper = () => {
         {/* 🔝 TOP NAVBAR */}
         <Navigation />
 
-        {/* 🔽 SECTIONS */}
-        <section id="home" className="">
-          <Home />
-        </section>
-
-        <section id="about" className="mt-6">
-          <About />
-        </section>
-
-        <section id="projects" className=" ">
-          <Projects />
-        </section>
-
-        <section id="blogs" className=" ">
-          <Blogs />
-        </section>
-
-        <section id="contact" className="">
-          <Contact />
-        </section>
+        {/* 🔽 ROUTE OUTLET */}
+        <Outlet />
 
         <Footer />
       </div>

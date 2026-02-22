@@ -65,7 +65,7 @@ const Contact = () => {
       id="contact"
       className="relative w-full scroll-mt-24"
     >
-      <div className="min-h-screen flex items-center">
+      <div className="min-h-screen flex items-center py-8 sm:py-12 md:py-16">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Section Title */}
@@ -172,7 +172,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-3.5 rounded-lg text-sm sm:text-base flex items-center justify-center gap-2 transition duration-300 min-h-[44px]"
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 active:scale-95 text-white py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-medium flex items-center justify-center gap-2 transition-all duration-300 min-h-[44px]"
               >
                 {loading ? (
                   <>

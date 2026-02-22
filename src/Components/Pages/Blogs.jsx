@@ -26,7 +26,7 @@ const Blogs = () => {
       id="blogs"
       className="relative w-full scroll-mt-24 pt-20"
     >
-      <div className="min-h-screen flex items-center">
+      <div className="min-h-screen flex items-center py-8 sm:py-12 md:py-16">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Section Header */}
@@ -63,7 +63,7 @@ const Blogs = () => {
                 ">
 
                   {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-44 sm:h-48 overflow-hidden">
                     <img
                       src={blog.image}
                       alt={blog.title}
@@ -71,16 +71,16 @@ const Blogs = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <span className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-blue-600 text-white px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
                       {blog.category}
                     </span>
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col flex-grow p-6">
+                  <div className="flex flex-col flex-grow p-4 sm:p-5 md:p-6">
 
                     {/* Meta */}
-                    <div className="flex items-center gap-4 mb-3 text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-3 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                       <div className="flex items-center gap-1">
                         <Calendar size={14} className="text-blue-400" />
                         <span>{blog.date}</span>
@@ -92,7 +92,7 @@ const Blogs = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800 dark:text-white">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800 dark:text-white break-words line-clamp-2">
                       {blog.title}
                     </h3>
 
@@ -105,9 +105,9 @@ const Blogs = () => {
                     <button
                       onClick={(e) => handleReadMore(e, blog.id)}
                       className="mt-auto inline-flex items-center justify-center
-                                 px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg text-sm sm:text-base
-                                 bg-blue-600 hover:bg-blue-700
-                                 text-white transition duration-300 gap-2 min-h-[44px]"
+                                 px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg text-sm sm:text-base font-medium
+                                 bg-blue-600 hover:bg-blue-700 active:scale-95
+                                 text-white transition-all duration-300 gap-2 min-h-[44px]"
                     >
                       Read More
                       <ArrowRight size={16} />
@@ -122,9 +122,9 @@ const Blogs = () => {
           {/* Toggle Button */}
           <div className="text-center">
             <button
-              className="mt-8 sm:mt-10 md:mt-12 px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base
-                         bg-blue-600 hover:bg-blue-700
-                         text-white transition duration-300 min-h-[44px]"
+              className="mt-8 sm:mt-10 md:mt-12 px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base font-medium
+                         bg-blue-600 hover:bg-blue-700 active:scale-95
+                         text-white transition-all duration-300 min-h-[44px]"
               onClick={() => setShowAllBlogs((prev) => !prev)}
             >
               {showAllBlogs ? "Show Less" : "Load More"}

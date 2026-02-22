@@ -9,12 +9,12 @@ const Footer = () => {
         <footer className="py-6 bbg-transparent text-[#93B1A6] transition-colors  duration-300">
             <div className="container mx-auto px-4 text-center">
                 {/* Social Links */}
-                <div className="mb-4 flex justify-center flex-wrap space-x-4 sm:space-x-6">
+                <div className="mb-4 flex justify-center flex-wrap gap-4 sm:gap-6">
                     <a
                         href="https://github.com/Ranjan-Ravii"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-300"
+                        className="hover:scale-110 active:scale-95 transition-transform duration-300"
                     >
                         <Github
                             className={`w-6 h-6 transition-colors duration-300 ${baseTextColor} ${hoverTextColor}`}
@@ -24,7 +24,7 @@ const Footer = () => {
                         href="https://www.linkedin.com/in/ranjan-ravii/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-300"
+                        className="hover:scale-110 active:scale-95 transition-transform duration-300"
                     >
                         <Linkedin
                             className={`w-6 h-6 transition-colors duration-300 ${baseTextColor} ${hoverTextColor}`}
@@ -34,7 +34,7 @@ const Footer = () => {
                         href="https://x.com/R_ranjan_"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-300"
+                        className="hover:scale-110 active:scale-95 transition-transform duration-300"
                     >
                         <Twitter
                             className={`w-6 h-6 transition-colors duration-300 ${baseTextColor} ${hoverTextColor}`}
@@ -44,7 +44,7 @@ const Footer = () => {
                         href="https://www.instagram.com/r_ranjan._/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-300"
+                        className="hover:scale-110 active:scale-95 transition-transform duration-300"
                     >
                         <Instagram
                             className={`w-6 h-6 transition-colors duration-300 ${baseTextColor} ${hoverTextColor}`}
@@ -54,7 +54,7 @@ const Footer = () => {
                         href="https://leetcode.com/u/inboxraviiranjan/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:scale-110 transition-transform duration-300 flex items-center"
+                        className="hover:scale-110 active:scale-95 transition-transform duration-300 flex items-center"
                     >
                         <svg className={`w-6 h-6 transition-colors duration-300 ${baseTextColor} ${hoverTextColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path d="M7.5 20.5L2.5 15.5L12 6L21.5 15.5L16.5 20.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
