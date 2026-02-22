@@ -44,11 +44,11 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
       className="relative w-full scroll-mt-24 pt-20"
     >
       <div className="min-h-screen flex items-center">
-        <div className="w-full max-w-6xl mx-auto px-6">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Section Title */}
           <motion.h2
-            className="text-5xl font-black uppercase text-center mb-14 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-center mb-8 sm:mb-10 md:mb-14 tracking-tight"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -57,7 +57,7 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
           </motion.h2>
 
           {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-stretch">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -79,12 +79,12 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
                 >
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800 dark:text-white">
                     {project.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed flex-grow">
                     {project.description}
                   </p>
 
@@ -113,9 +113,9 @@ and delivers contextual, fact-grounded answers using LLMs and vector search.`,
                     rel="noopener noreferrer"
                     className="
                     mt-auto inline-block text-center
-                    px-4 py-2 rounded-md
+                    px-4 py-2.5 sm:px-5 sm:py-3 rounded-md text-sm sm:text-base
                     bg-blue-600 hover:bg-blue-700
-                    text-white transition duration-300
+                    text-white transition duration-300 min-h-[44px]
                   "
                   >
                     View Project

@@ -27,23 +27,23 @@ const Blogs = () => {
       className="relative w-full scroll-mt-24 pt-20"
     >
       <div className="min-h-screen flex items-center">
-        <div className="w-full max-w-6xl mx-auto px-6">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Section Header */}
           <motion.h2
-            className="text-5xl font-black uppercase text-center mb-10"
+            className="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-center mb-6 sm:mb-8 md:mb-10"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Latest <span className="text-blue-400">Blogs</span>
           </motion.h2>
 
-          <p className="text-gray-400 dark:text-gray-300 text-lg text-center mb-12">
+          <p className="text-gray-400 dark:text-gray-300 text-base sm:text-lg text-center mb-8 sm:mb-10 md:mb-12">
             Explore my latest thoughts, tutorials, and insights.
           </p>
 
           {/* Blog Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {visibleBlogs.map((blog, index) => (
               <motion.div
                 key={blog.id}
@@ -92,12 +92,12 @@ const Blogs = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800 dark:text-white">
                       {blog.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 flex-grow">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 line-clamp-3 flex-grow">
                       {blog.description}
                     </p>
 
@@ -105,9 +105,9 @@ const Blogs = () => {
                     <button
                       onClick={(e) => handleReadMore(e, blog.id)}
                       className="mt-auto inline-flex items-center justify-center
-                                 px-4 py-2 rounded-lg
+                                 px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg text-sm sm:text-base
                                  bg-blue-600 hover:bg-blue-700
-                                 text-white transition duration-300 gap-2"
+                                 text-white transition duration-300 gap-2 min-h-[44px]"
                     >
                       Read More
                       <ArrowRight size={16} />
@@ -122,9 +122,9 @@ const Blogs = () => {
           {/* Toggle Button */}
           <div className="text-center">
             <button
-              className="mt-12 px-6 py-3 rounded-lg
+              className="mt-8 sm:mt-10 md:mt-12 px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base
                          bg-blue-600 hover:bg-blue-700
-                         text-white transition duration-300"
+                         text-white transition duration-300 min-h-[44px]"
               onClick={() => setShowAllBlogs((prev) => !prev)}
             >
               {showAllBlogs ? "Show Less" : "Load More"}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { blogs } from './BlogsData.jsx';
+import { blogs } from './BlogsData';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 

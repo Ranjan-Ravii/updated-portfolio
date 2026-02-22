@@ -14,15 +14,15 @@ const Home = () => {
     >
       {/* HERO (properly centered) */}
       <div className="min-h-screen flex flex-col items-center justify-center ">
-        <div className="w-full max-w-6xl px-6">
+        <div className="w-full max-w-6xl px-4 sm:px-6">
 
           {/* Two-column hero */}
-          <div className="flex flex-col items-center justify-center md:flex-row gap-10 text-left">
+          <div className="flex flex-col items-center justify-center md:flex-row gap-6 sm:gap-10 text-left">
 
             {/* LEFT: Heading */}
             <motion.h1
               className="font-oskari font-black uppercase text-white
-                         text-5xl sm:text-6xl md:text-[clamp(3rem,8vw,6rem)]
+                         text-4xl sm:text-5xl md:text-6xl lg:text-[clamp(3rem,8vw,6rem)]
                          leading-[0.95]"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -36,7 +36,7 @@ const Home = () => {
             {/* RIGHT: Description + CTA */}
             <div className="max-w-xl flex flex-col justify-end">
               <motion.p
-                className="text-gray-200 mt-36"
+                className="text-sm sm:text-base text-gray-200 mt-24 sm:mt-28 md:mt-36"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -45,7 +45,7 @@ const Home = () => {
               </motion.p>
 
               <motion.div
-                className="mt-6 flex gap-10 flex-wrap"
+                className="mt-4 sm:mt-6 flex gap-4 sm:gap-6 md:gap-10 flex-wrap"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -54,14 +54,14 @@ const Home = () => {
                   onClick={() =>
                     window.open("https://r-ranjan.vercel.app/", "_blank")
                   }
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-md transition min-h-[44px]"
                 >
                   View Portfolio
                 </button>
 
                 <button
                   onClick={sendMail}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-md transition min-h-[44px]"
                 >
                   Contact Me
                 </button>
@@ -70,8 +70,8 @@ const Home = () => {
 
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-16 px-6 text-gray-300">
-          <p>
+        <div className="max-w-6xl mx-auto mt-8 sm:mt-12 md:mt-16 px-4 sm:px-6 text-gray-300">
+          <p className="text-sm sm:text-base leading-relaxed">
             This is more than just a portfolio — it’s a reflection of my passion for
             building high-performance, user-centric applications. From frontend design to
             backend architecture, I craft complete digital solutions that are fast,

@@ -7,9 +7,9 @@ const Footer = () => {
 
     return (
         <footer className="py-6 bbg-transparent text-[#93B1A6] transition-colors  duration-300">
-            <div className="container mx-auto text-center">
+            <div className="container mx-auto px-4 text-center">
                 {/* Social Links */}
-                <div className="mb-4 flex justify-center space-x-6">
+                <div className="mb-4 flex justify-center flex-wrap space-x-4 sm:space-x-6">
                     <a
                         href="https://github.com/Ranjan-Ravii"
                         target="_blank"
@@ -64,7 +64,7 @@ const Footer = () => {
                 </div>
 
                 {/* Footer Text */}
-                <p className="text-sm">
+                <p className="text-xs sm:text-sm">
                     Made by Ravi Ranjan with <span className="text-orange-500">❤️</span>.
                 </p>
             </div>

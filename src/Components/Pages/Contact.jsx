@@ -66,53 +66,53 @@ const Contact = () => {
       className="relative w-full scroll-mt-24"
     >
       <div className="min-h-screen flex items-center">
-        <div className="w-full max-w-6xl mx-auto px-6">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Section Title */}
           <motion.h2
-            className="text-5xl font-black uppercase text-center mb-14"
+            className="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-center mb-8 sm:mb-10 md:mb-14"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Get in <span className="text-blue-400">Touch</span>
           </motion.h2>
 
-          <div className="flex flex-col md:flex-row gap-10 items-stretch">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 items-stretch">
 
             {/* LEFT SIDE */}
-            <div className="md:w-1/2 bg-white dark:bg-black/60 border border-gray-200 dark:border-white/10 rounded-xl p-8 shadow-md space-y-8">
+            <div className="md:w-1/2 bg-white dark:bg-black/60 border border-gray-200 dark:border-white/10 rounded-xl p-6 sm:p-8 shadow-md space-y-6 sm:space-y-8">
 
-              <div className="flex items-start gap-4">
-                <MapPin className="text-blue-500" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <MapPin className="text-blue-500 flex-shrink-0" size={20} />
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
                     Address
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                     Shakarpur, New Delhi, India
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <Phone className="text-blue-500" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <Phone className="text-blue-500 flex-shrink-0" size={20} />
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
                     Phone
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                     +91 8700834348
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <Mail className="text-blue-500" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <Mail className="text-blue-500 flex-shrink-0" size={20} />
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
                     Email
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 break-all">
                     inboxraviiranjan@gmail.com
                   </p>
                 </div>
@@ -123,13 +123,13 @@ const Contact = () => {
             {/* RIGHT SIDE FORM */}
             <form
               onSubmit={sendEmail}
-              className="md:w-1/2 bg-white dark:bg-black/60 border border-gray-200 dark:border-white/10 rounded-xl p-8 shadow-md"
+              className="md:w-1/2 bg-white dark:bg-black/60 border border-gray-200 dark:border-white/10 rounded-xl p-6 sm:p-8 shadow-md"
             >
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
 
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-800 dark:text-white">
+                  <label className="block mb-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-white">
                     Full Name
                   </label>
                   <input
@@ -137,12 +137,12 @@ const Contact = () => {
                     placeholder="full name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-black/40 border border-gray-300 dark:border-white/10 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg text-sm sm:text-base bg-gray-100 dark:bg-black/40 border border-gray-300 dark:border-white/10 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-800 dark:text-white">
+                  <label className="block mb-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-white">
                     Email
                   </label>
                   <input
@@ -150,29 +150,29 @@ const Contact = () => {
                     placeholder="youremail@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-black/40 border border-gray-300 dark:border-white/10 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg text-sm sm:text-base bg-gray-100 dark:bg-black/40 border border-gray-300 dark:border-white/10 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
                   />
                 </div>
 
               </div>
 
-              <div className="mb-6">
-                <label className="block mb-2 text-sm font-medium text-gray-800 dark:text-white">
+              <div className="mb-4 sm:mb-6">
+                <label className="block mb-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-white">
                   Message
                 </label>
                 <textarea
-                  rows={6}
+                  rows={5}
                   placeholder="write you message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-black/40 border border-gray-300 dark:border-white/10 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                  className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg text-sm sm:text-base bg-gray-100 dark:bg-black/40 border border-gray-300 dark:border-white/10 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition duration-300"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-3.5 rounded-lg text-sm sm:text-base flex items-center justify-center gap-2 transition duration-300 min-h-[44px]"
               >
                 {loading ? (
                   <>
