@@ -8,7 +8,7 @@ const MainPage = () => {
   return (
     <>
       {/* Sections */}
-      <section id="home" className="min-h-screen pt-16 sm:pt-20 md:pt-24">
+      <section id="home" className="min-h-screen sm:pt-20 md:pt-24">
         <Home />
       </section>
 
@@ -16,7 +16,7 @@ const MainPage = () => {
         <About />
       </section>
 
-      <section id="projects" className="min-h-screen pt-16 sm:pt-20 md:pt-24">
+      <section id="projects" className="min-h-screen pt-16 sm:pt-20 md:pt-24 ">
         <Projects />
       </section>
 

@@ -15,15 +15,15 @@ const Layout = () => {
       <Navigation />
 
       {/* Sections */}
-      <section id="home" className="min-h-screen pt-16 sm:pt-20 md:pt-24">
+      <section id="home" className="min-h-screen sm:pt-20 md:pt-24">
         <Home />
       </section>
 
-      <section id="about" className="min-h-screen pt-16 sm:pt-20 md:pt-24">
+      <section id="about" className="min-h-screen sm:pt-20 md:pt-24">
         <About />
       </section>
 
-      <section id="projects" className="min-h-screen pt-16 sm:pt-20 md:pt-24">
+      <section id="projects" className="min-h-screen  sm:pt-20 md:pt-24">
         <Projects />
       </section>
 

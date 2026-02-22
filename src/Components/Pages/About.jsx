@@ -40,7 +40,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative w-full scroll-mt-24 pt-10"
+      className="relative w-full scroll-mt-24 lg:-mt-20"
     >
       <div className="min-h-screen flex items-center py-8 sm:py-12 md:py-16">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
